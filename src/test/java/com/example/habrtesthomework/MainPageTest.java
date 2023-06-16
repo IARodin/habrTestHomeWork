@@ -12,7 +12,6 @@ import java.util.function.BooleanSupplier;
 public class MainPageTest {
     private WebDriver driver;
 
-
     @BeforeEach public void setUp() {
         ChromeOptions options = new ChromeOptions();
         // Fix the issue https://github.com/SeleniumHQ/selenium/issues/11750
@@ -21,8 +20,6 @@ public class MainPageTest {
         driver.manage().window().maximize();
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 driver.get("https://www.habr.com/");
-
-
     }
 
     @AfterEach public void tearDown() {
@@ -31,7 +28,6 @@ public class MainPageTest {
 
     @Test
     public void newAuthor() {
-
         WebElement hauBecomeAuthor = driver.findElement(By.xpath("//*[contains(text(),'Как стать автором')]"));
         hauBecomeAuthor.click();
 
@@ -40,7 +36,6 @@ public class MainPageTest {
 
         assertTrue(driver.findElement(By.cssSelector("#login_form")).isDisplayed(), "Вы не на той странице");
     }
-
 
     @Test
     public void bestCompany() {
@@ -51,10 +46,5 @@ public class MainPageTest {
         topCompany.click();
 
         assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Лучший блог компании 2020')]")).isDisplayed(), "Не Лучший блог компании 2020");
-
-
-
     }
-
-
 }
